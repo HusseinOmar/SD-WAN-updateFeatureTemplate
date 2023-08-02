@@ -1,0 +1,80 @@
+{
+    "templateName": "VIP09_Aggressive_BFD",
+    "templateDescription": "New Description 123456789",
+    "templateType": "cisco_bfd",
+    "deviceType": [
+        "vedge-C8000V"
+    ],
+    "templateMinVersion": "15.0.0",
+    "templateDefinition": {
+        "app-route": {
+            "multiplier": {
+                "vipObjectType": "object",
+                "vipType": "constant",
+                "vipValue": 2,
+                "vipVariableName": "bfd_multiplier"
+            },
+            "poll-interval": {
+                "vipObjectType": "object",
+                "vipType": "constant",
+                "vipValue": 6000,
+                "vipVariableName": "bfd_poll_interval"
+            }
+        },
+        "default-dscp": {
+            "vipObjectType": "object",
+            "vipType": "ignore",
+            "vipValue": 48,
+            "vipVariableName": "bfd_default_dscp"
+        },
+        "color": {
+            "vipType": "constant",
+            "vipValue": [
+                {
+                    "color": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": "mpls",
+                        "vipVariableName": "bfd_color"
+                    },
+                    "hello-interval": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": 2000,
+                        "vipVariableName": "bfd_hello_interval"
+                    },
+                    "multiplier": {
+                        "vipObjectType": "object",
+                        "vipType": "constant",
+                        "vipValue": 6,
+                        "vipVariableName": "bfd_color_multiplier"
+                    },
+                    "pmtu-discovery": {
+                        "vipObjectType": "object",
+                        "vipType": "ignore",
+                        "vipValue": "true",
+                        "vipVariableName": "bfd_pmtu_discovery"
+                    },
+                    "dscp": {
+                        "vipObjectType": "object",
+                        "vipType": "ignore",
+                        "vipValue": 48,
+                        "vipVariableName": "bfd_dscp"
+                    },
+                    "priority-order": [
+                        "color",
+                        "hello-interval",
+                        "multiplier",
+                        "pmtu-discovery",
+                        "dscp"
+                    ]
+                }
+            ],
+            "vipObjectType": "tree",
+            "vipPrimaryKey": [
+                "color"
+            ]
+        }
+    },
+    "factoryDefault": false
+}
